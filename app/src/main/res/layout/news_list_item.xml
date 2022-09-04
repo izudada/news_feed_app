@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="vertical"
+    android:layout_marginLeft="8dp"
+    android:layout_marginBottom="4dp"
+    android:padding="4dp"
 >
 
     <TextView
@@ -11,28 +14,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="1"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textFontWeight="@integer/material_motion_duration_long_2"
         android:text="@string/news_title"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="4dp"
+        android:paddingBottom="2dp"/>
 
     <TextView
         android:id="@+id/news_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="8sp"
         android:textFontWeight="@integer/material_motion_duration_long_2"
-        android:text="@string/news_date"/>
+        android:text="@string/news_date"
+        android:paddingBottom="2dp"/>
 
     <TextView
         android:id="@+id/news_section_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="10sp"
         android:textFontWeight="@integer/material_motion_duration_long_2"
         android:text="@string/news_section_name"/>
 
