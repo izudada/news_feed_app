@@ -2,13 +2,17 @@ package com.example.newsfeedapp;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +31,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * Returns a list item view that displays information about the news at the given position
      * in the list of articles.
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if there is an existing list item view (called convertView) that we can reuse,
@@ -51,14 +56,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
         newsSectionView.setText(currentNews.getSectionName());
 
         // Create a new Date object from the time in milliseconds of the news
-        Date dateObject = new Date(currentNews.getDate());
+//        Date dateObject = new Date(currentNews.getDate());
+//        LocalDateTime dateTime = LocalDateTime.parse(currentNews.getDate());
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.news_date);
         // Format the date string (i.e. "Mar 3, 1984")
-        String formattedDate = formatDate(dateObject);
+//        String formattedDate = formatDate(dateObject);
         // Display the date of the current news in that TextView
-        dateView.setText(formattedDate);
+        dateView.setText(currentNews.getDate());
 
 
         // Return the list item view that is now showing the appropriate data

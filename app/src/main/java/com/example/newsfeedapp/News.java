@@ -5,7 +5,7 @@ public class News {
    private String nTitle;
 
     /** Date of the news */
-    private long nDate;
+    private CharSequence nDate;
 
     /** The section the news belongs to */
     private String nSectionName;
@@ -21,7 +21,7 @@ public class News {
      * @param newsSection section the news belongs to
      * @param newsUrls The url of the news
      */
-    public News(String newsTitle, Long newsDate, String newsSection, String newsUrls) {
+    public News(String newsTitle, CharSequence newsDate, String newsSection, String newsUrls) {
         nTitle = newsTitle;
         nDate = newsDate;
         nSectionName = newsSection;
@@ -37,8 +37,9 @@ public class News {
 
     /**
      * Returns the date the article was wrtitten
+     * @return
      */
-    public Long getDate() {
+    public CharSequence getDate() {
         return nDate;
     }
 

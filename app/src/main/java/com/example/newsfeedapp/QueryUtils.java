@@ -169,7 +169,7 @@ public class QueryUtils {
                 String sectionName = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "webPublicationDate"
-                Long date = currentNews.getLong("webPublicationDate");
+                CharSequence date = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "webTitle"
                 String title = currentNews.getString("webTitle");
