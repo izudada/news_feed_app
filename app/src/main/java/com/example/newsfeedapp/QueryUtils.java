@@ -169,7 +169,7 @@ public class QueryUtils {
                 String sectionName = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "webPublicationDate"
-                CharSequence date = currentNews.getString("webPublicationDate");
+                String date = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "webTitle"
                 String title = currentNews.getString("webTitle");
@@ -177,9 +177,19 @@ public class QueryUtils {
                 // Extract the value for the key called "webUrl"
                 String url = currentNews.getString("webUrl");
 
+                String author = "Guardian News";
+
+                // Extract the value for the json array called "tags"
+                JSONArray tagsArray = currentNews.getJSONArray("tags");
+                if(tagsArray.length() > 0) {
+                    // Extract the author names
+                    author = tagsArray.getJSONObject(0).getString("firstName") + " " +
+                            tagsArray.getJSONObject(0).getString("lastName");
+                }
+
                 // Create a new {@link News} object with the sectionName, title, date,
                 // and url from the JSON response.
-                News article = new News(title, date, sectionName, url);
+                News article = new News(title, date, sectionName, url, author);
 
                 // Add the new {@link News} to the list of news.
                 news.add(article);
