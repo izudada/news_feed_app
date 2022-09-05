@@ -181,10 +181,20 @@ public class QueryUtils {
 
                 // Extract the value for the json array called "tags"
                 JSONArray tagsArray = currentNews.getJSONArray("tags");
+                String webTitle = "";
+
+
                 if(tagsArray.length() > 0) {
+                    try{
+                        webTitle = tagsArray.getJSONObject(0).getString("webTitle");
+                    }catch (JSONException e) {
+                        Log.e("QueryUtils", "Problem parsing the news JSON results", e);
+                    }
+
+
                     // Extract the author names
-                    author = tagsArray.getJSONObject(0).getString("firstName") + " " +
-                            tagsArray.getJSONObject(0).getString("lastName");
+                    author =  webTitle;
+
                 }
 
                 // Create a new {@link News} object with the sectionName, title, date,
