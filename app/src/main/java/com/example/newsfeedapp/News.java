@@ -5,13 +5,17 @@ public class News {
    private String nTitle;
 
     /** Date of the news */
-    private CharSequence nDate;
+    private String nDate;
 
     /** The section the news belongs to */
     private String nSectionName;
 
     /** The url of the news */
     private String nUrl;
+
+    /** The author of the news */
+    private String nAuthor;
+
 
     /**
      * Constructs a new {@link News}.
@@ -20,12 +24,14 @@ public class News {
      * @param newsDate Date of the news
      * @param newsSection section the news belongs to
      * @param newsUrls The url of the news
+     * @param newsAuthor The author of the news
      */
-    public News(String newsTitle, CharSequence newsDate, String newsSection, String newsUrls) {
+    public News(String newsTitle, String newsDate, String newsSection, String newsUrls, String newsAuthor) {
         nTitle = newsTitle;
         nDate = newsDate;
         nSectionName = newsSection;
         nUrl = newsUrls;
+        nAuthor = newsAuthor;
     }
 
     /**
@@ -39,7 +45,7 @@ public class News {
      * Returns the date the article was wrtitten
      * @return
      */
-    public CharSequence getDate() {
+    public String getDate() {
         return nDate;
     }
 
@@ -55,5 +61,12 @@ public class News {
      */
     public String getUrl() {
         return nUrl;
+    }
+
+    /**
+     * Returns the article's author.
+     */
+    public String getAuthor() {
+        return nAuthor;
     }
 }
