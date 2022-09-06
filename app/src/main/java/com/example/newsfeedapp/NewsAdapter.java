@@ -69,13 +69,4 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
-
-
-    /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
-     */
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd hh:mm");
-        return formatter.format(dateObject);
-    }
 }
