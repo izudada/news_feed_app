@@ -25,10 +25,6 @@ public class MainActivity extends AppCompatActivity
 
     private static final String LOG_TAG = MainActivity.class.getName();
 
-    /** URL for news data from the Guardian dataset */
-    private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=Careers&show-tags=contributor&api-key=test";
-
     /**
      * Constant value for the news loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
@@ -109,7 +105,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
-        return new NewsLoader(this, GUARDIAN_REQUEST_URL);
+
+        // Build the uri before parsing to loader
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("https")
+                .authority("content.guardianapis.com")
+                .appendPath("search")
+                .appendQueryParameter("q", "Careers")
+                .appendQueryParameter("show-tags", "contributor")
+                .appendQueryParameter("api-key", "test");
+        String guardian_request_url = builder.build().toString();
+        return new NewsLoader(this, guardian_request_url);
     }
 
 
@@ -123,13 +129,12 @@ public class MainActivity extends AppCompatActivity
         mEmptyStateTextView.setText(R.string.no_news);
 
         // Clear the adapter of previous news data
-        //mAdapter.clear();
+        mAdapter.clear();
 
         // If there is a valid list of {@link New}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (news != null && !news.isEmpty()) {
             mAdapter.addAll(news);
-            //updateUi(earthquakes);
         }
     }
 
