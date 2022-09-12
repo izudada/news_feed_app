@@ -5,8 +5,10 @@
 News Feed App
 ===================================
 
-This app displays lists articles from The Guardian API
-Used in a Udacity course in the Beginning Android Nanodegree.
+This app displays lists articles from The Guardian API.
+
+## Initial Preview
+![App Image](image_of_news_feed_app.jpeg)
 
 
 How to use this repository
